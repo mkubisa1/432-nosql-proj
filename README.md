@@ -19,4 +19,10 @@ This guide will setup the project on your local computer, not the Linux Lab mach
 8. After a few seconds you should be prompted with a preview of how the data will be imported. Leave this alone and start the import process. It will take a moment, but when it's done there should be 517401 entries.
 9. To close the MongoDB server when you are finished working, first close MongoDB Compass, then Ctrl+C in the terminal window to close the server.
 
-Section last edited by Matt on 2023-10-31
+# Queries
+At the root of the GitHub repository are text files containing the solutions to prompts 1, 2, and 3 per our project proposal. Each one contains the MongoDB queries used to filter down the dataset for that prompt.
+
+As of now, the way we've been able to count the results for each query is:
+1. Run the query using MongoDB Atlas.
+2. Export the query results as a JSON file.
+3. With the JSON file open in a text editor, find the number of hits for "_id" (a field which every dataset entry has). This gets us the number of hits.
