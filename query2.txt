@@ -1,0 +1,12 @@
+{
+  "$and": [
+    {
+      "message": { "$regex": "To:.*@honeywell\\.com" }
+    },
+    {
+      "$or": [
+        { "message": { "$regex": "apology|difficulty|upset|angry|delay|mistake|inconvenience|negative|frustrated|worried|awful" } }
+      ]
+    }
+  ]
+}

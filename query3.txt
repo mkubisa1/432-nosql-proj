@@ -1,0 +1,12 @@
+{
+  "$and": [
+    {
+      "message": { "$regex": "To:.*andrew.fastow@enron.com|To:.*kenneth.lay@enron.com" }
+    },
+    {
+      "message": {
+        "$regex": "resign|termination|resignation|quit|leave|notice|departure"
+      }
+    }
+    ]
+}
