@@ -1,12 +1,24 @@
+Filter: 
 {
-  "$and": [
+	$and: [
     {
-      "message": { "$regex": "To:.*andrew.fastow@enron.com|To:.*kenneth.lay@enron.com" }
+      $or: [
+        {"to": {$regex: "@enron.com"}},
+        {"X-cc": {$regex: "@enron.com"}},
+        {"X-bcc": {$regex: "@enron.com"}}
+      ]
     },
     {
-      "message": {
-        "$regex": "resign|termination|resignation|quit|leave|notice|departure"
-      }
+      $or: [
+        {"subject": {"$regex": "resign|termination|resignation|quit|leave|notice|departure"}},
+        {"message": {"$regex": "resign|termination|resignation|quit|leave|notice|departure"}}
+      ]
     }
-    ]
+  ]
 }
+
+Project:
+{date: 1}
+
+Sort:
+{date: 1}

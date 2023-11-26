@@ -1,28 +1,29 @@
 negative sentiment:
 {
-"$or": [
-	{"message": {"$regex": "Date:.*Feb.2000.*"}},
-	{"message": {"$regex": "Date:.*Mar.2000.*"}},
-	{"message": {"$regex": "Date:.*Apr.2000.*"}},
-	{"message": {"$regex": "Date:.*May.2000.*"}},
-	{"message": {"$regex": "Date:.*Jun.2000.*"}},
+	$or: [
+		{"date": {$regex: "Feb.2000"}},
+		{"date": {$regex: "Mar.2000"}},
+		{"date": {$regex: "Apr.2000"}},
+		{"date": {$regex: "May.2000"}},
+		{"date": {$regex: "Jun.2000"}}
 	],
-$and: [
-    { "message": { $regex: "negative|frustrated|worried|awful" } },
-  ]
+	$and: [
+		{"body": {$regex: "negative|frustrated|worried|awful|unsatisfied|disappointment|dissatisfaction"}},
+		{"to": {$regex: "@enron.com"}}
+	]
 }
 
 postiive sentiment:
 {
-"$or": [
-	{"message": {"$regex": "Date:.*Feb.2000.*"}},
-	{"message": {"$regex": "Date:.*Mar.2000.*"}},
-	{"message": {"$regex": "Date:.*Apr.2000.*"}},
-	{"message": {"$regex": "Date:.*May.2000.*"}},
-	{"message": {"$regex": "Date:.*Jun.2000.*"}},
+	$or: [
+		{"date": {$regex: "Feb.2000"}},
+		{"date": {$regex: "Mar.2000"}},
+		{"date": {$regex: "Apr.2000"}},
+		{"date": {$regex: "May.2000"}},
+		{"date": {$regex: "Jun.2000"}}
 	],
-$and: [
-    { "message": { $regex: "positive|happy|awesome|nice|glad" } },
-  ]
+	$and: [
+		{"body": {$regex: "positive|happy|awesome|nice|glad|satisfied|pleased|success"}},
+		{"to": {$regex: "@enron.com"} }
+	]
 }
-
