@@ -1,0 +1,25 @@
+negative attitude:
+{
+	$or: [
+    {"to": {$not: {$regex: "@enron.com"}}},
+    {"X-cc": {$not: {$regex: "@enron.com"}}},
+    {"X-bcc": {$not: {$regex: "@enron.com"}}}
+  ],
+  $and: [
+    {"from": {$regex: "@enron.com"}},
+    {"body": {$regex: "apology|difficulty|upset|angry|delay|mistake|inconvenience|negative|frustrated|worried|awful"}}
+  ]
+}
+
+positive attitude:
+{
+	$or: [
+    {"to": {$not: {$regex: "@enron.com"}}},
+    {"X-cc": {$not: {$regex: "@enron.com"}}},
+    {"X-bcc": {$not: {$regex: "@enron.com"}}}
+  ],
+  $and: [
+    {"from": {$regex: "@enron.com"}},
+    {"body": {$regex: "positive|happy|excellent|thanks|pleased|appreciation|successful|efficient"}}
+  ]
+}

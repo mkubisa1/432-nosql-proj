@@ -1,0 +1,24 @@
+Filter: 
+{
+	$and: [
+    {
+      $or: [
+        {"to": {$regex: "@enron.com"}},
+        {"X-cc": {$regex: "@enron.com"}},
+        {"X-bcc": {$regex: "@enron.com"}}
+      ]
+    },
+    {
+      $or: [
+        {"subject": {"$regex": "resign|termination|resignation|quit|leave|notice|departure"}},
+        {"message": {"$regex": "resign|termination|resignation|quit|leave|notice|departure"}}
+      ]
+    }
+  ]
+}
+
+Project:
+{date: 1}
+
+Sort:
+{date: 1}

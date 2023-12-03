@@ -1,0 +1,29 @@
+negative sentiment:
+{
+	$or: [
+		{"date": {$regex: "Feb.2000"}},
+		{"date": {$regex: "Mar.2000"}},
+		{"date": {$regex: "Apr.2000"}},
+		{"date": {$regex: "May.2000"}},
+		{"date": {$regex: "Jun.2000"}}
+	],
+	$and: [
+		{"body": {$regex: "negative|frustrated|worried|awful|unsatisfied|disappointment|dissatisfaction"}},
+		{"to": {$regex: "@enron.com"}}
+	]
+}
+
+postiive sentiment:
+{
+	$or: [
+		{"date": {$regex: "Feb.2000"}},
+		{"date": {$regex: "Mar.2000"}},
+		{"date": {$regex: "Apr.2000"}},
+		{"date": {$regex: "May.2000"}},
+		{"date": {$regex: "Jun.2000"}}
+	],
+	$and: [
+		{"body": {$regex: "positive|happy|awesome|nice|glad|satisfied|pleased|success"}},
+		{"to": {$regex: "@enron.com"} }
+	]
+}
