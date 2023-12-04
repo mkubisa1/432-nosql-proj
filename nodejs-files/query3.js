@@ -39,6 +39,21 @@ async function run() {
     fs.writeFileSync(outputFile, JSON.stringify(hits, null, 2));
     console.log(`Results exported to ${outputFile}`);
 
+    // Array of target phrases
+    const targetPhrases = ["Dec 2000", "Jan 2001", "Feb 2001"];
+
+    // Search for and count instances of each target phrase
+    targetPhrases.forEach(targetPhrase => {
+      const count = hits.reduce((acc, email) => {
+        if (email.date.includes(targetPhrase)) {
+          return acc + 1;
+        }
+        return acc;
+      }, 0);
+
+      console.log(`Number of instances of "${targetPhrase}": ${count}`);
+    });
+
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
