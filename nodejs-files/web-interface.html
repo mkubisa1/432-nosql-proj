@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB Sentiment Analysis</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Enron Email NoSQL Project Queries</h1>
+    <h4>Matt Kubisa; Gordon Liang</h4>
+
+    <button type="button" onclick="runQuery('query1')">Run Query 1</button> 
+    <button type="button" onclick="runQuery('query2')">Run Query 2</button> 
+    <button type="button" onclick="runQuery('query3')">Run Query 3</button>
+
+    <div class="output" id="output" style="border: 1px solid black;">
+        <!-- query output placed here by javascript -->
         <script>
+            async function fetchQueryData(path) {
+                try {
+                    const response = await fetch(`http://localhost:3000/queries/${path}`);
+                    const data = await response.json();
+                    
+                    if((path === 'query1') || (path === 'query2')) {
+                        document.getElementById('output').innerHTML =
+                            `<p>Negative Sentiment Count: ${data.negCount}</p>` +
+                            `<p>Positive Sentiment Count: ${data.posCount}`;
+                    } else {
+                        const htmlOutput = data.targetPhraseCounts.map(item => `<li>${item.targetPhrase}: ${item.count}</li>`).join('');
+                        document.getElementById('output').innerHTML = `<ul>${htmlOutput}</ul>`;
+                    }
+
+                } catch (error) {
+                    console.error('Error fetching query data:', error);
+                }
+            }
+        
             function runQuery(path) {
-               const outputBox = document.getElementById("output");
-               outputBox.innerHTML = "execute query " + path;
-            }   
+                document.getElementById('output').innerHTML = 'Loading...';
+                fetchQueryData(path);
+            }
         </script>
-    </head>
-    <body>
-        <h1>Enron Email NoSQL Project Queries</h1>
-        <h4>Matt Kubisa; Gordon Liang</h4>
-
-        <button type="button" onclick="runQuery(1)">Run Query 1</button> 
-        <button type="button" onclick="runQuery(2)">Run Query 2</button> 
-        <button type="button" onclick="runQuery(3)">Run Query 3</button> 
-
-        <div class="output" id="output" style="border: 1px solid black;">
-            <!-- query output placed here by javascript -->
-        </div>
-    </body>
+    </div>
+</body>
 </html>

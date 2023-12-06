@@ -40,3 +40,10 @@ Much information gleaned from https://www.mongodb.com/docs/drivers/node/current/
 After going through the above setup, node.js should already be initialized and the mongodb node driver already installed here, so you should be able to simply run "node ./[query].js" to execute a given query. Otherwise refer to the above link to the mongodb website to initialize node.js and install the mongodb node driver.
 
 NOTE: query3.js currently exports its findings to a .json file. if this json file already exists, it may cause execution problems.
+
+## Running queries in web browser
+To run the the queries in a web browser:
+1. Navigate to ./nodejs-files and run `node server.js` in the terminal
+2. A message `Server is listening at http://localhost:3000` should appear
+3. Open web-interface.html in a web broswer
+4. Click on the buttons to run the queries. It will load for a while and then the output should show under the buttons.
