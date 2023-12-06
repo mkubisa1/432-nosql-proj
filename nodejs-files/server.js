@@ -143,7 +143,7 @@ app.get("/queries/query3", async (req, res) => {
     console.log(`Results exported to ${outputFile}`);
 
     // Array of target phrases
-    const targetPhrases = ["Dec 2000", "Jan 2001", "Feb 2001"];
+    const targetPhrases = ["Jan 2000", "Feb 2000", "Mar 2000", "Apr 2000", "May 2000", "Jun 2000", "Jul 2000", "Aug 2000", "Sep 2000", "Oct 2000", "Nov 2000", "Dec 2000", "Jan 2001", "Feb 2001", "Mar 2001", "Apr 2001", "May 2001", "Jun 2001", "Jul 2001", "Aug 2001", "Sep 2001", "Oct 2001", "Nov 2001", "Dec 2001"];
 
     const targetPhraseCounts = [];
 
