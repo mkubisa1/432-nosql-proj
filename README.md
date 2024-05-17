@@ -1,3 +1,13 @@
+# Analyzing Company Distress from Enron Emails 
+**Matthew Kubisa; Gordon Liang**
+
+*CS 432: Database Systems*
+
+The written report submitted alongside our project contains our problem statement and results. [It can be found here.](./docs/nosql-report.md) Given below is information on setting up and running the project with the repository downloaded locally.
+
+# Running Demo
+To automatically demo the web interface on a Windows computer, navigate to the project folder and run `./demo.ps1` in PowerShell. Make sure running PowerShell scripts is enabled on your machine.
+
 # Environment Setup (Using MongoDB Compass)
 This guide will setup the project on your local computer, not the Linux Lab machine. It also assumes you are running Windows.
 1. Before you start, make sure these programs are installed on your computer:
@@ -47,6 +57,3 @@ To run the the queries in a web browser:
 2. A message `Server is listening at http://localhost:3000` should appear
 3. Open web-interface.html in a web broswer
 4. Click on the buttons to run the queries. It will load for a while and then the output should show under the buttons.
-
-# Running Demo
-To automatically demo the web interface, navigate to the project folder and run ./demo.ps1 in Powershell. Make sure running powershell scripts is enabled on your machine.
